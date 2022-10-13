@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pokemoncrawler'
 ]
 
 MIDDLEWARE = [
@@ -77,14 +78,17 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'pokemonDB',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'db',
-        'PORT': 5432,
+        'PORT': 5432
     }
 }
 
+# Celery settings
+CELERY_BROKER_URL = "redis://rd-queue:6379"
+CELERY_RESULT_BACKEND = "redis://rd-queue:6379"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

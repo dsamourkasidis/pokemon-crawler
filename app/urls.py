@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pokemoncrawler.views import get_pokemons, start_crawling
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('crawl/', start_crawling),
+    path('pokemon/', get_pokemons),
 ]
